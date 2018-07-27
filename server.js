@@ -1,11 +1,15 @@
 const express = require('express');
+const makeRouter = require('./middlewares/makeRouter');
+const cors = require('cors');
+const morgan = require('morgan');
 
 const actionModel = require('./data/helpers/actionModel');
 const projectModel = require('./data/helpers/projectModel');
 
-const makeRouter = require('./middlewares/makeRouter');
 
 const server = express();
+server.use(cors());
+server.use(morgan('dev'));
 
 server.get('/api/projects/:id/actions', async (req, res) => {
   try {
