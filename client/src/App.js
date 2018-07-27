@@ -108,7 +108,7 @@ class App extends Component {
         <ul>
           {projects}
         </ul>
-        <Route path="/:id" component={ Project } />
+        <Route path="/:id" render={routeProps => <Project {...routeProps } />} />
       </div>
     );
   }
